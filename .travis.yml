@@ -9,15 +9,15 @@ script:
   - docker run joshuak/react-test npm run test -- --coverage
 
 after_success:
-  - docker build -t joshuak/multi-client ./client
-  - docker build -t joshuak/multi-nginx ./nginx
-  - docker build -t joshuak/multi-server ./server
-  - docker build -t joshuak/multi-worker ./worker 
+  - docker build -t jkraut0517/multi-client ./client
+  - docker build -t jkraut0517/multi-nginx ./nginx
+  - docker build -t jkraut0517/multi-server ./server
+  - docker build -t jkraut0517/multi-worker ./worker 
   #log into the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # take those images and push them to docker hub
-  - docker push joshuak/multi-client
-  - docker push joshuak/multi-nginx
-  - docker push joshuak/multi-server
-  - docker push joshuak/multi-worker
+  - docker push jkraut0517/multi-client
+  - docker push jkraut0517/multi-nginx
+  - docker push jkraut0517/multi-server
+  - docker push jkraut0517/multi-worker
